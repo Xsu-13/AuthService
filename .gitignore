@@ -1,0 +1,7 @@
+﻿.vs
+Auth/bin
+Auth.AuthService/bin
+Auth/obj
+Auth.AuthService/obj
+Auth.MailService/obj
+Auth.MailService/bin

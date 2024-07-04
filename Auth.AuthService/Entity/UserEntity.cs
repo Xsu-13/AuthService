@@ -15,6 +15,9 @@ namespace Auth.AuthService.Entity
         public string Email { get; private set; } = email;
 
         [Required]
-        public string Password { get; private set; } = password;
+        public string Password { get; set; } = password;
+
+        public bool EmailComfirmed { get; set; }
+
     }
 }

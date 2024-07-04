@@ -10,6 +10,12 @@ namespace Auth.AuthService
         {
             CreateMap<User, UserEntity>();
             CreateMap<UserEntity, User>();
+
+            CreateMap<ConfirmationToken, ConfirmationTokenEntity>();
+            CreateMap<ConfirmationTokenEntity, ConfirmationToken>();
+
+            CreateMap<PasswordReset, PasswordResetEntity>();
+            CreateMap<PasswordResetEntity, PasswordReset>();
         }
     }
 }

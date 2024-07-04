@@ -1,3 +1,6 @@
+using Auth.MailService.Controllers;
+using Auth.MailService.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHostedService<MailConsumer>();
+
+builder.Services.AddSingleton<IMailService, MailService>();
 
 var app = builder.Build();
 

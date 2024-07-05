@@ -84,7 +84,9 @@ namespace Auth.AuthService.Endpoints
 
         private static async Task<IResult> TryChangePassword([FromRoute] string email, [FromRoute] string code, UserService service, HttpContext httpContext)
         {
-            return Results.Ok();
+            var html = File.ReadAllText(@"./src/reset-password.html");
+
+            return Results.Content(html, "text/html");
         }
 
         private static async Task<IResult> ChangePassword([FromRoute] string email, [FromRoute] string code, string password, UserService service, HttpContext httpContext)

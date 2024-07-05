@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Дополнительный стиль для видимости формы */
+        #myForm {
+            display: none; /* Изначально скрываем форму */
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate__animated animate__delay-0.7s" id="myForm">
+        <div class="login-form">
+            <div class="form__up">
+                <h1>Welcome to</h1>
+                <p>AUTH</p>
+                <div class="form__up-left">
+                    <h3>Have an account?</h3>
+                    <a href="/login.html" class="form__link">Login</a>
+                </div>
+            </div>
+            <h2>Sign up</h2>
+            <form>
+                <div class="input-group">
+                    <label class="username" for="username">Enter your username</label>
+                    <input class="username-input" type="text" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <label class="username" for="username">Enter your email address</label>
+                    <input class="username-input" type="text" id="username" name="username" placeholder="Email address">
+                </div>
+                <div class="input-group">
+                    <label class="username" for="password">Enter your Password</label>
+                    <input class="username-input" type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="btn">
+                    <button type="submit" class="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Скрипт для добавления анимации и отображения формы при загрузке страницы
+        window.addEventListener('load', function() {
+            var form = document.getElementById('myForm');
+            form.style.display = 'block'; // Показываем форму
+            form.classList.add('animate__slideInDown'); 
+        });
+    </script>
+</body>
+</html>

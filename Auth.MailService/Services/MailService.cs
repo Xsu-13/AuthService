@@ -14,7 +14,7 @@ namespace Auth.MailService.Controllers
 
             string htmlTemplate = File.ReadAllText(htmlPath);
 
-            string htmlBody = htmlTemplate.Replace("{{confirmation_link}}", confirmationLink);
+            string htmlBody = htmlTemplate.Replace("{{link}}", confirmationLink);
 
             var bodyBuilder = new BodyBuilder
             {

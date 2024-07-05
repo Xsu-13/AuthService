@@ -98,20 +98,20 @@ namespace Auth.AuthService.Services
         }
 
 
-        //ДОДЕЛАТЬ ФУНКЦИЮ
         public async Task<bool> CheckUserTokenToResetPassword(string email, string token, string password)
         {
             var user = await _userRepository.GetByEmail(email);
+            var hashedPassword = _passwordHasher.Generate(password);
 
             if (user == null) return false;
 
-            var userToken = await _emailConfirmationRepository.GetByUserId(user.Id);
+            var userToken = await _passwordResetRepository.GetByUserId(user.Id);
 
             if (userToken?.Token == token)
             {
-                await _emailConfirmationRepository.UpdateUsed(userToken, true);
+                await _passwordResetRepository.UpdateUsed(userToken, true);
 
-                await _userRepository.UpdatePassword(email, password);
+                await _userRepository.UpdatePassword(email, hashedPassword);
 
                 return true;
             }

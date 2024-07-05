@@ -20,6 +20,8 @@ namespace Auth.AuthService.Endpoints
             endpoints.MapPost("logout", Logout);
             endpoints.MapGet("confirm/{email}&{code}", ConfirmEmail);
             endpoints.MapPost("reset-password", ResetPassword);
+            endpoints.MapGet("reset/{email}&{code}", TryChangePassword);
+            endpoints.MapPost("reset/{email}&{code}", ChangePassword);
 
             return builder;
         }
@@ -80,7 +82,12 @@ namespace Auth.AuthService.Endpoints
             return Results.Ok();
         }
 
-        private static async Task<IResult> TryChangePassword([FromRoute] string email, [FromRoute] string code, string password, UserService service, HttpContext httpContext)
+        private static async Task<IResult> TryChangePassword([FromRoute] string email, [FromRoute] string code, UserService service, HttpContext httpContext)
+        {
+            return Results.Ok();
+        }
+
+        private static async Task<IResult> ChangePassword([FromRoute] string email, [FromRoute] string code, string password, UserService service, HttpContext httpContext)
         {
             var result = await service.CheckUserTokenToResetPassword(email, code, password);
 

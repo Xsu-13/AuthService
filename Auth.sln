@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.AuthService", "Auth.Au
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.MailService", "Auth.MailService\Auth.MailService.csproj", "{6FA1B07A-3970-409E-92B9-E40F239F1680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.SocialMediaStream", "Auth.SocialMediaStream\Auth.SocialMediaStream.csproj", "{99B9C934-5B9A-433D-9EDE-EAAC7C01B218}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.SocialMediaStream", "Auth.SocialMediaStream\Auth.SocialMediaStream.csproj", "{99B9C934-5B9A-433D-9EDE-EAAC7C01B218}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

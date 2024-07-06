@@ -1,5 +1,6 @@
 using Auth.MailService.Controllers;
 using Auth.MailService.Services;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

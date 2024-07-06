@@ -30,7 +30,7 @@
             <div class="social-login">
                 <button class="google">Sign in with Google</button>
             </div>
-            <form>
+            <form id="loginForm">
                 <div class="input-group">
                     <label class="username" for="username">Enter your email address</label>
                     <input class="username-input" type="text" id="username" name="username" placeholder="Email address">
@@ -51,6 +51,42 @@
             var form = document.getElementById('myForm');
             form.style.display = 'block';
             form.classList.add('animate__slideInDown'); 
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+
+            // Получаем значения из полей формы
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Отправляем запрос на сервер
+                const response = await fetch('https://localhost:7011/User/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Email: email,
+                        Password: password
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Login successful!');
+                    // Возможно, перенаправление на другую страницу
+                    // window.location.href = '/dashboard';
+                } else {
+                    // Обработка ошибки входа
+                    const errorMessage = await response.text();
+                    alert(`Login failed: ${errorMessage}`);
+                }
+            } catch (error) {
+                // Обработка ошибок сети или других исключений
+                console.error('Error during login:', error);
+                alert('An error occurred. Please try again.');
+            }
         });
     </script>
 </body>

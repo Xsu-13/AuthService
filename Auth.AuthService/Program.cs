@@ -35,6 +35,15 @@ services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 services.AddScoped<UserService>();
 
+services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:5500");
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+    });
+});
 
 
 var app = builder.Build();
@@ -44,6 +53,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();
